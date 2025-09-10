@@ -1,4 +1,5 @@
 -- solutions/day01.sql
+-- trigger run
 -- 1) Customers with order counts and total spend
 WITH cust AS (
     SELECT c.customer_id, c.name
