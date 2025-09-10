@@ -1,0 +1,10 @@
+# OS
+.DS_Store
+
+# Python caches (if you add scripts)
+__pycache__/
+
+# Env and data
+.env
+*.db
+*.sqlite
