@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - name: Install sqlfluff
-        run: pip install sqlfluff
+      - name: Install sqlfluff (with Jinja)
+        run: pip install "sqlfluff[jinja]"
       - name: Lint SQL
         run: sqlfluff lint .
