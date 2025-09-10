@@ -57,5 +57,4 @@ sqlfluff lint .
 - Keep solutions self‑contained so anyone can run them.
 - Prefer CTEs and comments to explain your logic.
 - Add small synthetic datasets in `scripts/init.sql` to practice various patterns.
-
-Test run after fixing SQLFluff workflow
+Triggering GitHub Actions test run
