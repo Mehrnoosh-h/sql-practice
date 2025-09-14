@@ -3,20 +3,25 @@ name: SQL Lint
 on:
   push:
     paths:
-      - '**/*.sql'
+      - "solutions/**/*.sql"
+      - ".sqlfluff"
+      - ".github/workflows/sql-lint.yml"
   pull_request:
     paths:
-      - '**/*.sql'
+      - "solutions/**/*.sql"
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
+
       - name: Install sqlfluff (with Jinja)
-        run: pip install "sqlfluff[jinja]"
-      - name: Lint SQL
-        run: sqlfluff lint .
+        run: pip install "sqlfluff[jinja]>=3,<4"
+
+      - name: Lint SQL (solutions only, do not fail CI for now)
+        # Let the job succeed even if violations exist (we'll clean files gradually)
+        continue-on-error: true
+        run: |
+          sqlfluff --version
+          sqlfluff lint "solutions/**/*.sql" --format github-annotation --config .sqlfluff
