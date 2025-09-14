@@ -57,3 +57,4 @@ SELECT
   MAX(salary) AS SecondHighestSalary   -- MAX over empty set => NULL
 FROM ranking
 WHERE rn = 2;
+
